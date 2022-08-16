@@ -1,29 +1,30 @@
 <html>
 
 <head>
-  <title>Express</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>socket-chatroom</title>
 </head>
 
 <body>
-  <h1>Welcome to Chat Room</h1>
+  <h1>Welcome to Mari Kindergarten Parents' Chat Room</h1>
 
-  <!-- <form id="inputName">Your name:
-    <input id="userName" />
-    <button>SAVE</button>
-  </form> -->
+  <h2>Choose chat room</h2>
+
+  <button id="dandelion">Dandelion class</button>
+  <button id="tulip">Tulip class</button>
+  <button id="sunflower">Sunflower class</button>
   
   <form id="form">
-    <label>Your Name: <input id="userName" /></label>
-    <input id="input" />
-    <button>SEND</button>
+    <div><label>Your Name: <input id="userName" /></label></div>
+    <div><label>Message: <input id="input" /></label></div>
+    <div><button>SEND</button></div>
   </form>
 
   <ul id="chat"></ul>
 
   <script src="socket.io/socket.io.js"></script>
   <script src="./input.js"></script>
-  
 </body>
 
 </html>

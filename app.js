@@ -5,6 +5,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var dandelionRouter = require('./routes/dandelion');
 
 var app = express();
 const server = require("http").Server(app);
@@ -18,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/dandelion', dandelionRouter);
 
 //Get message sent from front side.
 io.on("connection", function(socket){
@@ -30,10 +32,6 @@ io.on("connection", function(socket){
         console.log("Message: " + msg + ", user: " + userName)
         io.emit("chat message", {msg, userName})
     })
-
-    // socket.on("setUserName", function(userName){
-    //     io.emit("setUserName", userName)
-    // })
 })
 
 module.exports = {
