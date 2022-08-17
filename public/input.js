@@ -3,7 +3,9 @@ form = document.getElementById("form");
 input = document.getElementById("input");
 chat = document.getElementById("chat");
 userName = document.getElementById("userName");
-dandelionRoom = document.getElementById("dandelionRoom");
+let selectRoom = document.getElementById('selectRoom');
+let formBtn = document.getElementById("formBtn");
+formBtn = false;
 
 let chatRoom = null;
 
@@ -14,13 +16,45 @@ let chatRoom = null;
 //   console.log("You choose dandelion class.");
 // })
 
+
+// let ele = document.getElementById('chatRoom');
+// // 現在の visibility プロパティの値を保持
+// const visibilityOriginal = ele.style.visibility;
+// // hidden に設定して非表示
+// ele.style.visibility = 'hidden';
+// // 元に戻して表示
+// ele.style.visibility = visibilityOriginal;
+
+//alert
+if (!input) {
+  alert("Please choose chat room");
+  document.getElementById("formBtn").disabled = true;
+} 
+
+
 //Select chat room
-var room = document.getElementById('room');
-room.addEventListener('change', (e) => {
-      var selectRoom = document.getElementById('selectRoom');
-      selectRoom.textContent =  "You choose :" + room.options[room.selectedIndex].textContent;
-      room = room.options[room.selectedIndex].textContent;
-      console.log(room);
+selectRoom.addEventListener('change', (e) => {
+      var selectRoomResult = document.getElementById('selectRoomResult');
+      selectRoomResult.textContent =  "Welcome to " + selectRoom.options[selectRoom.selectedIndex].textContent ;
+      selectRoom = selectRoom.options[selectRoom.selectedIndex].textContent;
+      console.log(selectRoom);
+
+      let ele = document.getElementById('chatRoom');
+      const visibilityOriginal = ele.style.visibility;
+      // ele.style.visibility = 'hidden';
+      ele.style.visibility = visibilityOriginal;
+      
+      //selectRoom hidden
+      let el = document.getElementById('selectRoom');
+      const visibleElement = el.style.visibility;
+      el.style.visibility = 'hidden';
+      //el.style.visibility = visibleElement;
+
+      //Show HTML
+      let room = document.getElementById("room");
+      room.textContent = `Welcome  ❤️ You are logged in now! `;
+
+      
     });
 
 //Button click (save message & Save Name)

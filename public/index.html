@@ -9,27 +9,31 @@
 <body>
   <h1>Mari Kindergarten Parents' Chat Room</h1>
 
-  <div>Chat Room
-    <select id="room" name="room">
-      <option value="" selected hidden >Please choose you class</option>
+  <div>
+    <select id="selectRoom" name="room">
+      <option value="" selected="hidden" >Please choose you class</option>
       <option value="Dandelion class">Dandelion class</option>
       <option value="Tulip class">Tulip class</option>
       <option value="Sunflower class">Sunflower class</option>
     </select>
   </div>
-  <p id="selectRoom"></p>
+  <p id="selectRoomResult"></p>
 
   <!-- <button id="dandelionRoom">Dandelion class</button>
   <button id="tulipRoom">Tulip class</button>
   <button id="sunflowerRoom">Sunflower class</button> -->
-  
-  <form id="form">
-    <div><label>Your Name: <input id="userName" /></label></div>
-    <div><label>Message: <input id="input" /></label></div>
-    <div><button>SEND</button></div>
-  </form>
 
-  <ul id="chat"></ul>
+  <div id="room"></div>
+  
+  <section id="chatRoom">
+    <form id="form">
+      <div><label>Your Name: <input id="userName" /></label></div>
+      <div><label>Message: <input id="input" /></label></div>
+      <div><button id="formBtn">SEND</button></div>
+    </form>
+
+    <ul id="chat"></ul>
+  </section>
 
   <script src="socket.io/socket.io.js"></script>
   <script src="./input.js"></script>
