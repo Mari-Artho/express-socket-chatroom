@@ -7,6 +7,7 @@ const selectRoom = document.getElementById('selectRoom');
 const formBtn = document.getElementById("formBtn");
 
 let chatRoom = null;
+let user = null;
 
 // let ele = document.getElementById('chatRoom');
 // // 現在の visibility プロパティの値を保持
@@ -55,7 +56,7 @@ form.addEventListener("submit", function(e){
   e.preventDefault();
   if(input.value){
     let msg = input.value;
-    let user = userName.value;
+    user = userName.value;
     socket.emit("chat message", {msg, userName: user, room: chatRoom});
     input.value = null;
   }
@@ -70,6 +71,9 @@ socket.on("chat message", function({msg, userName, room}){
       return;
     }
     chat = document.getElementById("chat");
+    if (user == userName) {
+      userName = "<b>" + userName + "</b>";
+    }
     chat.insertAdjacentHTML("beforeend", "<li>" + userName + ":" +  msg + "(" + room + ")" + "</li>");
 });
 
