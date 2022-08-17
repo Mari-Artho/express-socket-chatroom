@@ -58,7 +58,6 @@ form.addEventListener("submit", function(e){
     let user = userName.value;
     socket.emit("chat message", {msg, userName: user, room: chatRoom});
     input.value = null;
-    userName.value = null;
   }
 });
 
