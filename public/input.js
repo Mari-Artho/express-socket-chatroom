@@ -1,7 +1,27 @@
 const socket = io();
 form = document.getElementById("form");
 input = document.getElementById("input");
+chat = document.getElementById("chat");
 userName = document.getElementById("userName");
+dandelionRoom = document.getElementById("dandelionRoom");
+
+let chatRoom = null;
+
+//dandelion button click
+// dandelionRoom.addEventListener("click", (e) => {
+//   chatRoom = "dandelionRoom";
+//   chat.innerHTML = null;
+//   console.log("You choose dandelion class.");
+// })
+
+//Select chat room
+var room = document.getElementById('room');
+room.addEventListener('change', (e) => {
+      var selectRoom = document.getElementById('selectRoom');
+      selectRoom.textContent =  "You choose :" + room.options[room.selectedIndex].textContent;
+      room = room.options[room.selectedIndex].textContent;
+      console.log(room);
+    });
 
 //Button click (save message & Save Name)
 form.addEventListener("submit", function(e){

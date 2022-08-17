@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   //   return format;
   // }
 
-  console.log(req);
+  // console.log(req);
 
   //add css
   let htmlHead = `
