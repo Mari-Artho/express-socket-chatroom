@@ -1,21 +1,12 @@
 const socket = io();
-form = document.getElementById("form");
-input = document.getElementById("input");
-chat = document.getElementById("chat");
-userName = document.getElementById("userName");
-let selectRoom = document.getElementById('selectRoom');
-let formBtn = document.getElementById("formBtn");
-formBtn = false;
+const form = document.getElementById("form");
+const input = document.getElementById("input");
+let chat = document.getElementById("chat");
+const userName = document.getElementById("userName");
+const selectRoom = document.getElementById('selectRoom');
+const formBtn = document.getElementById("formBtn");
 
 let chatRoom = null;
-
-//dandelion button click
-// dandelionRoom.addEventListener("click", (e) => {
-//   chatRoom = "dandelionRoom";
-//   chat.innerHTML = null;
-//   console.log("You choose dandelion class.");
-// })
-
 
 // let ele = document.getElementById('chatRoom');
 // // 現在の visibility プロパティの値を保持
@@ -26,9 +17,10 @@ let chatRoom = null;
 // ele.style.visibility = visibilityOriginal;
 
 //alert
-if (!input) {
+if (!chatRoom) {
+  formBtn.disabled = true;
+  selectRoom.selectedIndex = 0;
   alert("Please choose chat room");
-  document.getElementById("formBtn").disabled = true;
 } 
 
 
@@ -38,6 +30,7 @@ selectRoom.addEventListener('change', (e) => {
       var selectRoomResult = document.getElementById('selectRoomResult');
       console.log(chatRoom);
       selectRoomResult.textContent =  "Welcome to " + chatRoom ;
+      formBtn.disabled = false;
 
       let ele = document.getElementById('chatRoom');
       const visibilityOriginal = ele.style.visibility;
