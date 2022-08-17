@@ -34,10 +34,10 @@ if (!input) {
 
 //Select chat room
 selectRoom.addEventListener('change', (e) => {
+      chatRoom = selectRoom.options[selectRoom.selectedIndex].textContent;
       var selectRoomResult = document.getElementById('selectRoomResult');
-      selectRoomResult.textContent =  "Welcome to " + selectRoom.options[selectRoom.selectedIndex].textContent ;
-      selectRoom = selectRoom.options[selectRoom.selectedIndex].textContent;
-      console.log(selectRoom);
+      console.log(chatRoom);
+      selectRoomResult.textContent =  "Welcome to " + chatRoom ;
 
       let ele = document.getElementById('chatRoom');
       const visibilityOriginal = ele.style.visibility;
@@ -63,18 +63,22 @@ form.addEventListener("submit", function(e){
   if(input.value){
     let msg = input.value;
     let user = userName.value;
-    socket.emit("chat message", {msg, userName: user});
+    socket.emit("chat message", {msg, userName: user, room: chatRoom});
     input.value = null;
     userName.value = null;
   }
 });
 
-socket.on("chat message", function({msg, userName}){
+socket.on("chat message", function({msg, userName, room}){
     if(!userName) { 
         userName = "Anonymous 👹";
     }
+    if (room != chatRoom) {
+      //console.log("Oops, wrong room: " + room + " != my room " + chatRoom)
+      return;
+    }
     chat = document.getElementById("chat");
-    chat.insertAdjacentHTML("beforeend", "<li>" + userName + ":" +  msg + "</li>");
+    chat.insertAdjacentHTML("beforeend", "<li>" + userName + ":" +  msg + "(" + room + ")" + "</li>");
 });
 
 
