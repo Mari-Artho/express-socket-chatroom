@@ -11,11 +11,11 @@ let chatRoom = null;
 let user = null;
 
 //alert
-if (!chatRoom) {
-  formBtn.disabled = true;
-  selectRoom.selectedIndex = 0;
-  alert("Please choose chat room");
-} 
+// if (!chatRoom) {
+//   formBtn.disabled = true;
+//   selectRoom.selectedIndex = 0;
+//   alert("Please choose chat room");
+// } 
 
 //Select chat room
 selectRoom.addEventListener('change', (e) => {
@@ -23,6 +23,7 @@ selectRoom.addEventListener('change', (e) => {
   var selectRoomResult = document.getElementById('selectRoomResult');
   console.log(chatRoom);
   selectRoomResult.textContent =  "Welcome to " + chatRoom ;
+  //selectRoomResult.setAttribute("id", "chatRoom");
   formBtn.disabled = false;
   
   //selectRoom hidden
@@ -54,9 +55,10 @@ socket.on("chat message", function({msg, userName, room}){
     chat = document.getElementById("chat");
     //find yourself
     if (user == userName) {
-      userName = "<b class='myName'>" + userName + "</b>";
+      userName = "<b>" + userName + "</b>";
+      chat.insertAdjacentHTML("beforeend", "<li class='myName'>" + userName + " : " +  msg +  "</li>");
     }    
-    chat.insertAdjacentHTML("beforeend", "<li>" + userName + " : " +  msg +  "</li>");
+    chat.insertAdjacentHTML("beforeend", "<li class='yourName'>" + userName + " : " +  msg +  "</li>");
 });
 
 

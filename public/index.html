@@ -6,29 +6,34 @@
 </head>
 
 <body>
-  <h1>Mari Kindergarten Parents' Chat Room</h1>
+<section class="header">
+  <h1>Mari Kindergarten Parents' Chat Room </h1>
 
-  <div>
-    <select id="selectRoom" name="room">
-      <option value="" selected="selected" >Please choose your class</option>
+  <div >
+    <h2 id="selectRoomResult">Please Choose a Chat Room👇👇</h2>
+    <select id="selectRoom"  name="room">
+      <option value="" selected="selected" ></option>
       <option value="Dandelion class">Dandelion class</option>
       <option value="Tulip class">Tulip class</option>
       <option value="Sunflower class">Sunflower class</option>
     </select>
   </div>
-  <p id="selectRoomResult"></p>
+</section>
   
-  <section id="chatRoom">
-    <form id="form">
-      <div><label>Your Name: <input id="userName" /></label></div>
-      <div><label>Message: <input id="input" /></label></div>
-      <div><button id="formBtn">SEND</button></div>
-    </form>
+<section id="chatRoom">
+  <form id="form">
+    <div><label>Your Name : <input id="userName" /></label></div>
+    <div><label>Message    : <input id="input" /></label></div>
+    <div><button id="formBtn">SEND</button></div>
+  </form>
 
-    <ul id="chat"></ul>
-  </section>
+  <ul id="chat"></ul>
+</section>
 
-  <script src="socket.io/socket.io.js"></script>
-  <script src="./input.js"></script>
+<!-- back to home button -->
+<footer class="footer"><a href="index.html">Back to home</a></footer>
+
+<script src="socket.io/socket.io.js"></script>
+<script src="./input.js"></script>
 </body>
 </html>
