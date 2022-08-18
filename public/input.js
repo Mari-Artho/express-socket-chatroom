@@ -57,8 +57,8 @@ socket.on("chat message", function({msg, userName, room}){
     if (user == userName) {
       userName = "<b>" + userName + "</b>";
       chat.insertAdjacentHTML("beforeend", "<li class='myName'>" + userName + " : " +  msg +  "</li>");
-    }    
-    chat.insertAdjacentHTML("beforeend", "<li class='yourName'>" + userName + " : " +  msg +  "</li>");
+    }  else{
+    chat.insertAdjacentHTML("beforeend", "<li class='yourName'>" + userName + " : " +  msg +  "</li>")};
 });
 
 
