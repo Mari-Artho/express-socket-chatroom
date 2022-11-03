@@ -1,0 +1,9 @@
+name: Greetings
+on: push
+
+jobs:
+  build:
+    name: Greeting
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, Bra jobbat!"
