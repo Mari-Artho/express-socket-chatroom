@@ -2,7 +2,6 @@
   "name": "express-socket-chatroom",
   "version": "0.0.0",
   "description": "This is a chat room written in JavaScript using its socket.io library.",
-  "main": "app.js",
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "debug": "^2.6.9",
